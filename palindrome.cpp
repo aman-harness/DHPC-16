@@ -42,7 +42,7 @@ template <class T>  inline void smax(T &x,T y){ x = max((x), (y));}
 template <class T>  inline void smin(T &x,T y){ x = min((x), (y));}
 
 #ifdef LOCAL
-#define fr freopen("in.txt","r",stdin)
+#define fr freopen("palindrome_2.txt","r",stdin)
 #define fo freopen("output.txt","w",stdout)
 
 #define error(x) cerr << #x << " = " << (x) <<endl
@@ -77,19 +77,20 @@ const double eps = 1e-7;
 
 int solve(){
 	string str;
-	int map[26]; 
-	R(i, 26) map[i] = 0;
+	map <char, int> mp; 
+
 	cin >> str;
 	R(i, str.size()){
-		map[str[i]] += 1; 
+		mp[str[i]] = mp[str[i]] + 1; 
 	}
 
-	int ans = 0, maxi = 0;
-	R(i, 26){
-		if(map[i] % 2 == 0) ans += map[i];
-		else smax(maxi, map[i]); 
+	int ans = 0, odd = 0;
+	for(auto x: mp){
+		if(x.se % 2 == 0);
+		else odd++;
 	}
-	ans += maxi;
+	int n = str.size();
+	ans = min(n, n - odd + 1);
 
 	cout << ans << endl;
 }
@@ -97,11 +98,21 @@ int solve(){
 int main(){
 	std::ios::sync_with_stdio(false);
 	fr;
+
+	clock_t begin = clock();
+
+	// code_to_time();	
+
 	cint(tt);
 	// int tt = 1; 
 	F(tc, 1, tt + 1){
 		// print(tc, solve());
 		solve();
 	}
+
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+	cout << elapsed_secs << " " << endl;
+
 	return 0;
 }

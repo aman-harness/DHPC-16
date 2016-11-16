@@ -1,6 +1,6 @@
 /*
 Author : Aman Singh
-Solution for problem code Casting.
+Solution for problem code gen_double.
  
 ==============================================
 A programmer started to cuss,
@@ -41,8 +41,8 @@ template <class T>  inline void smax(T &x,T y){ x = max((x), (y));}
 template <class T>  inline void smin(T &x,T y){ x = min((x), (y));}
 
 #ifdef LOCAL
-#define fr freopen("casting_2.in","r",stdin)
-#define fo freopen("casting_2_wrong.out","w",stdout)
+#define fr freopen("in.txt","r",stdin)
+#define fo freopen("casting_2.in","w",stdout)
 
 #define error(x) cerr << #x << " = " << (x) <<endl
 #define Error(a,b) cerr<<"( "<<#a<<" , "<<#b<<" ) = ( "<<(a)<<" , "<<(b)<<" )\n";
@@ -74,29 +74,23 @@ void sc(int &x,int &y,int &z) { sc(x); sc(y); return sc(z); }
 #define inf 1e9
 const double eps = 1e-7;
 
-inline int solve(){
-	double a, b;
-	cin >> a >> b;
-	// int c = a * b + 1e-8;   // epsilon = 10^-8
-	int c = a * b;
-	cout << c << endl;
+int fRand(double fMin, double fMax)
+{
+    int y = rand() % 10000;
+    return y;
+    // double x = y / double(100);
 }
+
 
 int main(){
 	std::ios::sync_with_stdio(false);
-	fr;fo;
-
-	clock_t begin = clock();	
-
-	cint(tt);
-	// int tt = 1; 	
+	fr; fo;
+	// cint(tt);
+	int tt = 100000;
+	cout << tt << endl;
+	// int tt = 1; 
 	F(tc, 1, tt + 1){
-		solve();
+		cout << fRand(0.0001, 1000) << " " << fRand(0.0001, 1000) << endl;
 	}
-
-	clock_t end = clock();
-	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-	cout << elapsed_secs << " " << endl;
-
 	return 0;
 }
